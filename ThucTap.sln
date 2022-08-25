@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TT_API", "TT_API\TT_API.csproj", "{81CD19EA-5B9C-4604-8F98-B4CF9937D5EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TT_Share", "TT_Share\TT_Share.csproj", "{F79A8AA2-972C-45A7-8F93-64AB9722A57B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81CD19EA-5B9C-4604-8F98-B4CF9937D5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CD19EA-5B9C-4604-8F98-B4CF9937D5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CD19EA-5B9C-4604-8F98-B4CF9937D5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CD19EA-5B9C-4604-8F98-B4CF9937D5EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F79A8AA2-972C-45A7-8F93-64AB9722A57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79A8AA2-972C-45A7-8F93-64AB9722A57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79A8AA2-972C-45A7-8F93-64AB9722A57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79A8AA2-972C-45A7-8F93-64AB9722A57B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15E76DAC-BB4B-47D2-8AD5-A6B1720C9BF6}
+	EndGlobalSection
+EndGlobal

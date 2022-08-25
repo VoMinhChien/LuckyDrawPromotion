@@ -1,0 +1,15 @@
+F:\THUC_TAP\BT2\ThucTap\TT_Share\bin\Debug\net5.0\TT_Share.deps.json
+F:\THUC_TAP\BT2\ThucTap\TT_Share\bin\Debug\net5.0\TT_Share.runtimeconfig.json
+F:\THUC_TAP\BT2\ThucTap\TT_Share\bin\Debug\net5.0\TT_Share.runtimeconfig.dev.json
+F:\THUC_TAP\BT2\ThucTap\TT_Share\bin\Debug\net5.0\TT_Share.dll
+F:\THUC_TAP\BT2\ThucTap\TT_Share\bin\Debug\net5.0\TT_Share.pdb
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\TT_Share.csproj.AssemblyReference.cache
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\TT_Share.GeneratedMSBuildEditorConfig.editorconfig
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\TT_Share.AssemblyInfoInputs.cache
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\TT_Share.AssemblyInfo.cs
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\TT_Share.csproj.CoreCompileInputs.cache
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\TT_Share.dll
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\refint\TT_Share.dll
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\TT_Share.pdb
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\TT_Share.genruntimeconfig.cache
+F:\THUC_TAP\BT2\ThucTap\TT_Share\obj\Debug\net5.0\ref\TT_Share.dll
