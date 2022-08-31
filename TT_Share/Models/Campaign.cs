@@ -10,10 +10,11 @@ namespace TT_Share.Models
         [Key]
         [Column(TypeName = "int")]  
         public int Campaign_Id { get; set; }
+        [Required]
        
         [Column(TypeName = "nvarchar(255)")]
         [Display(Name = "Name")]     
-        public int Campaign_Name { get; set; }//khóa ng
+        public string Campaign_Name { get; set; }
         [Column(TypeName = "bit")]
         [Display(Name = "Compaign_Type")]
         public bool Compaihn_Type { get; set; }
@@ -56,9 +57,8 @@ namespace TT_Share.Models
         [Column(TypeName = "DateTime")]
         [Display(Name = "EndDate")]
         public DateTime EndDate { get; set; }
+        public ICollection<BarCodes> barCodes { get; set; }
+        public ICollection<Gifts> Gifts { get; set; }
 
-        public  virtual BarCodes BarCodes { get; set; }
-        public virtual Gifts Gifts { get; set; }
-                
     }
 }

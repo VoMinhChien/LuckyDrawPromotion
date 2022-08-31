@@ -10,8 +10,8 @@ using TT_Share.Models;
 namespace TT_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220825053413_tt2")]
-    partial class tt2
+    [Migration("20220831092149_bt2")]
+    partial class bt2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,15 +55,9 @@ namespace TT_API.Migrations
                     b.Property<int>("Campaign_Id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Winners_Id")
-                        .HasColumnType("int");
-
                     b.HasKey("BarCodes_Id");
 
-                    b.HasIndex("Campaign_Id")
-                        .IsUnique();
-
-                    b.HasIndex("Winners_Id");
+                    b.HasIndex("Campaign_Id");
 
                     b.ToTable("BarCodes");
                 });
@@ -103,8 +97,7 @@ namespace TT_API.Migrations
 
                     b.HasKey("BarcodeHistory_Id");
 
-                    b.HasIndex("BarcodeHistory_Owner")
-                        .IsUnique();
+                    b.HasIndex("BarcodeHistory_Owner");
 
                     b.HasIndex("Barcode_Id");
 
@@ -171,6 +164,11 @@ namespace TT_API.Migrations
 
             modelBuilder.Entity("TT_Share.Models.Gifts", b =>
                 {
+                    b.Property<int>("Gifts_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("Campaign_Id")
                         .HasColumnType("int");
 
@@ -188,17 +186,22 @@ namespace TT_API.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
-                    b.HasKey("Campaign_Id");
+                    b.HasKey("Gifts_Id");
+
+                    b.HasIndex("Campaign_Id");
 
                     b.ToTable("Giftss");
                 });
 
             modelBuilder.Entity("TT_Share.Models.Rules", b =>
                 {
-                    b.Property<int>("Campaign_Id")
+                    b.Property<int>("Rule_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Campaign_Id")
+                        .HasColumnType("int");
 
                     b.Property<bool>("Rule_AllDay")
                         .HasColumnType("bit");
@@ -228,9 +231,10 @@ namespace TT_API.Migrations
                     b.Property<DateTime>("Rules_RepeatDaily_StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Campaign_Id");
+                    b.HasKey("Rule_Id");
 
-                    b.HasIndex("Rules_GiftName");
+                    b.HasIndex("Rules_GiftName")
+                        .IsUnique();
 
                     b.ToTable("Ruless");
                 });
@@ -251,6 +255,9 @@ namespace TT_API.Migrations
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
+
+                    b.Property<int>("NumberOfTurns")
+                        .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -301,17 +308,8 @@ namespace TT_API.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("Winners_FullName")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("Winners_GiftCode")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("Winners_GiftName")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("Winners_GiftId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Winners_PhoneNumber")
                         .IsRequired()
@@ -321,10 +319,16 @@ namespace TT_API.Migrations
                     b.Property<bool>("Winners_SentGift")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Winners_UserID")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
                     b.Property<DateTime>("Winners_Windate")
                         .HasColumnType("DateTime");
 
                     b.HasKey("Winners_Id");
+
+                    b.HasIndex("Winners_GiftId");
 
                     b.ToTable("Winners");
                 });
@@ -332,25 +336,19 @@ namespace TT_API.Migrations
             modelBuilder.Entity("TT_Share.Models.BarCodes", b =>
                 {
                     b.HasOne("TT_Share.Models.Campaign", "Campaign")
-                        .WithOne("BarCodes")
-                        .HasForeignKey("TT_Share.Models.BarCodes", "Campaign_Id")
+                        .WithMany("barCodes")
+                        .HasForeignKey("Campaign_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TT_Share.Models.Winner", "Winner")
-                        .WithMany()
-                        .HasForeignKey("Winners_Id");
-
                     b.Navigation("Campaign");
-
-                    b.Navigation("Winner");
                 });
 
             modelBuilder.Entity("TT_Share.Models.BarcodeHistory", b =>
                 {
                     b.HasOne("TT_Share.Models.Users", "users")
-                        .WithOne("BarcodeHistory")
-                        .HasForeignKey("TT_Share.Models.BarcodeHistory", "BarcodeHistory_Owner")
+                        .WithMany("BarcodeHistorys")
+                        .HasForeignKey("BarcodeHistory_Owner")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -367,24 +365,35 @@ namespace TT_API.Migrations
 
             modelBuilder.Entity("TT_Share.Models.Gifts", b =>
                 {
-                    b.HasOne("TT_Share.Models.Campaign", "Campaign")
-                        .WithOne("Gifts")
-                        .HasForeignKey("TT_Share.Models.Gifts", "Campaign_Id")
+                    b.HasOne("TT_Share.Models.Campaign", "campaign")
+                        .WithMany("Gifts")
+                        .HasForeignKey("Campaign_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Campaign");
+                    b.Navigation("campaign");
                 });
 
             modelBuilder.Entity("TT_Share.Models.Rules", b =>
                 {
                     b.HasOne("TT_Share.Models.Gifts", "Gifts")
-                        .WithMany()
-                        .HasForeignKey("Rules_GiftName")
+                        .WithOne("Rules")
+                        .HasForeignKey("TT_Share.Models.Rules", "Rules_GiftName")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Gifts");
+                });
+
+            modelBuilder.Entity("TT_Share.Models.Winner", b =>
+                {
+                    b.HasOne("TT_Share.Models.Gifts", "gifts")
+                        .WithMany("winners")
+                        .HasForeignKey("Winners_GiftId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("gifts");
                 });
 
             modelBuilder.Entity("TT_Share.Models.BarCodes", b =>
@@ -394,14 +403,21 @@ namespace TT_API.Migrations
 
             modelBuilder.Entity("TT_Share.Models.Campaign", b =>
                 {
-                    b.Navigation("BarCodes");
+                    b.Navigation("barCodes");
 
                     b.Navigation("Gifts");
                 });
 
+            modelBuilder.Entity("TT_Share.Models.Gifts", b =>
+                {
+                    b.Navigation("Rules");
+
+                    b.Navigation("winners");
+                });
+
             modelBuilder.Entity("TT_Share.Models.Users", b =>
                 {
-                    b.Navigation("BarcodeHistory");
+                    b.Navigation("BarcodeHistorys");
                 });
 #pragma warning restore 612, 618
         }

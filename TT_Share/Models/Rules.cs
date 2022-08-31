@@ -7,6 +7,7 @@ namespace TT_Share.Models
     public class Rules
     {
         [Key]
+        public int Rule_Id { get; set; }
         [ForeignKey("Campaign")]
         [Column(TypeName = "int")]
         public int Campaign_Id { get; set; }
@@ -39,7 +40,7 @@ namespace TT_Share.Models
         [Required(ErrorMessage = "Please enter data")]
         public int Rules_Probability { get; set; }
         
-        public Gifts Gifts { get; set; }
+        public virtual Gifts Gifts { get; set; }
        
         public DateTime Rules_RepeatDaily_StartTime { get; set; }
         public DateTime Rules_RepeatDaily_EndDate { get; set; } 

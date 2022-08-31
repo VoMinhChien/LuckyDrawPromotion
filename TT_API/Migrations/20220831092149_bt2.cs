@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TT_API.Migrations
 {
-    public partial class tt2 : Migration
+    public partial class bt2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,51 +50,12 @@ namespace TT_API.Migrations
                     User_Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     User_Password2 = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     User_Roles = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    NumberOfTurns = table.Column<int>(type: "int", nullable: false),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Users_Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Winners",
-                columns: table => new
-                {
-                    Winners_Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Winners_FullName = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Winners_PhoneNumber = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false),
-                    Winners_Address = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Winners_Windate = table.Column<DateTime>(type: "DateTime", nullable: false),
-                    Winners_GiftCode = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Winners_GiftName = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Winners_SentGift = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Winners", x => x.Winners_Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Giftss",
-                columns: table => new
-                {
-                    Campaign_Id = table.Column<int>(type: "int", nullable: false),
-                    Gifts_Product = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Gifts_Description = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Gifts_CodeCount = table.Column<int>(type: "int", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "DateTime", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Giftss", x => x.Campaign_Id);
-                    table.ForeignKey(
-                        name: "FK_Giftss_Campaigns_Campaign_Id",
-                        column: x => x.Campaign_Id,
-                        principalTable: "Campaigns",
-                        principalColumn: "Campaign_Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -111,8 +72,7 @@ namespace TT_API.Migrations
                     BarCodes_ScannedDate = table.Column<DateTime>(type: "DateTime", nullable: false),
                     BarCodes_Scanned = table.Column<int>(type: "Int", nullable: false),
                     BarCodes_Active = table.Column<bool>(type: "bit", nullable: false),
-                    Campaign_Id = table.Column<int>(type: "int", nullable: false),
-                    Winners_Id = table.Column<int>(type: "int", nullable: true)
+                    Campaign_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,37 +83,27 @@ namespace TT_API.Migrations
                         principalTable: "Campaigns",
                         principalColumn: "Campaign_Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BarCodes_Winners_Winners_Id",
-                        column: x => x.Winners_Id,
-                        principalTable: "Winners",
-                        principalColumn: "Winners_Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ruless",
+                name: "Giftss",
                 columns: table => new
                 {
-                    Campaign_Id = table.Column<int>(type: "int", nullable: false)
+                    Gifts_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Rules_Name = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Rules_GiftName = table.Column<int>(type: "int", nullable: false),
-                    Rules_Amount = table.Column<int>(type: "int", nullable: false),
-                    Rule_StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    Rule_EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    Rule_AllDay = table.Column<bool>(type: "bit", nullable: false),
-                    Rules_Probability = table.Column<int>(type: "int", nullable: false),
-                    Rules_RepeatDaily_StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Rules_RepeatDaily_EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Campaign_Id = table.Column<int>(type: "int", nullable: false),
+                    Gifts_Product = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Gifts_Description = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Gifts_CodeCount = table.Column<int>(type: "int", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "DateTime", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ruless", x => x.Campaign_Id);
+                    table.PrimaryKey("PK_Giftss", x => x.Gifts_Id);
                     table.ForeignKey(
-                        name: "FK_Ruless_Giftss_Rules_GiftName",
-                        column: x => x.Rules_GiftName,
-                        principalTable: "Giftss",
+                        name: "FK_Giftss_Campaigns_Campaign_Id",
+                        column: x => x.Campaign_Id,
+                        principalTable: "Campaigns",
                         principalColumn: "Campaign_Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -190,6 +140,58 @@ namespace TT_API.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Ruless",
+                columns: table => new
+                {
+                    Rule_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Campaign_Id = table.Column<int>(type: "int", nullable: false),
+                    Rules_Name = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Rules_GiftName = table.Column<int>(type: "int", nullable: false),
+                    Rules_Amount = table.Column<int>(type: "int", nullable: false),
+                    Rule_StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    Rule_EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    Rule_AllDay = table.Column<bool>(type: "bit", nullable: false),
+                    Rules_Probability = table.Column<int>(type: "int", nullable: false),
+                    Rules_RepeatDaily_StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Rules_RepeatDaily_EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ruless", x => x.Rule_Id);
+                    table.ForeignKey(
+                        name: "FK_Ruless_Giftss_Rules_GiftName",
+                        column: x => x.Rules_GiftName,
+                        principalTable: "Giftss",
+                        principalColumn: "Gifts_Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Winners",
+                columns: table => new
+                {
+                    Winners_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Winners_UserID = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Winners_PhoneNumber = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false),
+                    Winners_Address = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Winners_Windate = table.Column<DateTime>(type: "DateTime", nullable: false),
+                    Winners_GiftId = table.Column<int>(type: "int", nullable: false),
+                    Winners_SentGift = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Winners", x => x.Winners_Id);
+                    table.ForeignKey(
+                        name: "FK_Winners_Giftss_Winners_GiftId",
+                        column: x => x.Winners_GiftId,
+                        principalTable: "Giftss",
+                        principalColumn: "Gifts_Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_BarcodeHistorys_Barcode_Id",
                 table: "BarcodeHistorys",
@@ -198,24 +200,28 @@ namespace TT_API.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_BarcodeHistorys_BarcodeHistory_Owner",
                 table: "BarcodeHistorys",
-                column: "BarcodeHistory_Owner",
-                unique: true);
+                column: "BarcodeHistory_Owner");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BarCodes_Campaign_Id",
                 table: "BarCodes",
-                column: "Campaign_Id",
-                unique: true);
+                column: "Campaign_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BarCodes_Winners_Id",
-                table: "BarCodes",
-                column: "Winners_Id");
+                name: "IX_Giftss_Campaign_Id",
+                table: "Giftss",
+                column: "Campaign_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ruless_Rules_GiftName",
                 table: "Ruless",
-                column: "Rules_GiftName");
+                column: "Rules_GiftName",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Winners_Winners_GiftId",
+                table: "Winners",
+                column: "Winners_GiftId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -227,6 +233,9 @@ namespace TT_API.Migrations
                 name: "Ruless");
 
             migrationBuilder.DropTable(
+                name: "Winners");
+
+            migrationBuilder.DropTable(
                 name: "BarCodes");
 
             migrationBuilder.DropTable(
@@ -234,9 +243,6 @@ namespace TT_API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Giftss");
-
-            migrationBuilder.DropTable(
-                name: "Winners");
 
             migrationBuilder.DropTable(
                 name: "Campaigns");

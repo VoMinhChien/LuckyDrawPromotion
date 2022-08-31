@@ -34,9 +34,7 @@ namespace TT_Share.Models
         public bool BarCodes_Active { get; set; }
         [ForeignKey("Campaign")]
         public int Campaign_Id { get; set; }
-        public virtual Campaign Campaign { get; set; }
-        
-        public Winner Winner { get; set; }
+        public  Campaign Campaign { get; set; }
         public ICollection<BarcodeHistory> BarcodeHistorys { get; set; }
     }
 }

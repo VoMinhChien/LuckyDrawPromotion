@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
@@ -59,9 +60,11 @@ namespace TT_Share.Models
         [Display(Name = "Chức danh")]
         [Column(TypeName = "nvarchar(100)")]
         public Role User_Roles { get; set; }
+        public int NumberOfTurns { get; set; }
         [Column(TypeName = "bit")]
-        [Display(Name = "Block")]
+        [Display(Name = "Block")]    
         public bool IsDelete { get; set; }
-        public virtual BarcodeHistory BarcodeHistory { get; set; }
+        public ICollection<BarcodeHistory> BarcodeHistorys { get; set; }
+
     }
 }

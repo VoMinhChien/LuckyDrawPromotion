@@ -64,9 +64,9 @@ namespace TT_API
 
             services.AddTransient<IMaHoaHelper, MaHoaHelper>();
             services.AddTransient<IUser_Svc, User_Svc>();
+            services.AddTransient<IManager_Svc, Manager_Svc>();
 
 
-           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

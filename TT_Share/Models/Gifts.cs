@@ -8,7 +8,8 @@ namespace TT_Share.Models
     public class Gifts
     {
         [Key]
-        [ForeignKey("Campaign")]
+        public int Gifts_Id { get; set; }
+        [ForeignKey("campaign")]
         [Column(TypeName = "int")]
         public int Campaign_Id { get; set; }
         [Column(TypeName = "varchar(255)")]
@@ -26,7 +27,9 @@ namespace TT_Share.Models
         [Column(TypeName = "DateTime")]
         [Display(Name = "CreateDate")]
         public DateTime CreateDate { get; set; }
-        public virtual Campaign Campaign { get; set; }  
-    
+        public Campaign campaign { get; set; }
+        public virtual Rules Rules { get; set; }
+        public ICollection<Winner> winners { get; set; }
+       
     }
 }

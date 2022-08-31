@@ -11,9 +11,9 @@ namespace TT_Share.Models
         [Column(TypeName = "int")]
         public int Winners_Id { get; set; }
         [Column(TypeName = "varchar(255)")]
-        [Display(Name = "FullName")]
+        [Display(Name = "Users")]
         [Required(ErrorMessage = "Please enter data")]
-        public string Winners_FullName { get; set; }
+        public int Winners_UserID{ get; set; }
         [Required(ErrorMessage = "Please enter data")]
         [Column(TypeName = "varchar(15)"), MaxLength(15)]
         [RegularExpression(@"^\(?([0-9]{3})[-. ]?([0-9]{4})[-. ]?([0-9]{3})$", ErrorMessage = "Invalid phone number.")]
@@ -27,22 +27,14 @@ namespace TT_Share.Models
         [Display(Name = "Windate")]
         [Required(ErrorMessage = "Please enter data")]
         public DateTime Winners_Windate { get; set; }
-        [ForeignKey("GitsCode ")]
-        [Column(TypeName = "varchar(255)")]
-        [Display(Name = "GiftCode ")]
-        [Required(ErrorMessage = "Please enter data")]
-        public string Winners_GiftCode { get; set; }//khóa ngaoij
-
-        [ForeignKey("GitsCodes")]
-        [Column(TypeName = "varchar(255)")]
+        [ForeignKey("gifts")]
         [Display(Name = "GiftName ")]
         [Required(ErrorMessage = "Please enter data")]
-        public string Winners_GiftName { get; set; }//khóa ngoại
+        public int Winners_GiftId { get; set; }//khóa ngoại
         [Column(TypeName = "bit")]
         [Display(Name = "SentGift ")]
-       
+       public Gifts gifts { get; set; }
         public bool Winners_SentGift { get; set; }
-
         
     }
 }

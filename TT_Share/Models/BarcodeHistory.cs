@@ -11,6 +11,7 @@ namespace TT_Share.Models
         [Required(ErrorMessage = "Please enter data")]
         [Column(TypeName = "varchar(50)"), MaxLength(50)]
         public string BarcodeHistory_Code { get; set; }//khoa ng
+        
         [Column(TypeName = "DateTime")]
         [Display(Name = "CreateDate")]
         public DateTime BarcodeHistory_CreatedDate { get; set; }
@@ -36,6 +37,6 @@ namespace TT_Share.Models
 
 
         public BarCodes BarCodes { get; set; }
-        public virtual Users users { get; set; }
+        public  Users users { get; set; }
     }
 }
