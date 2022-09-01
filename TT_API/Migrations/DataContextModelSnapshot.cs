@@ -147,7 +147,7 @@ namespace TT_API.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Prefix")
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("DateTime");
@@ -178,11 +178,11 @@ namespace TT_API.Migrations
 
                     b.Property<string>("Gifts_Description")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Gifts_Product")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Gifts_Id");
 
@@ -252,7 +252,7 @@ namespace TT_API.Migrations
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("NumberOfTurns")
                         .HasColumnType("int");
@@ -264,18 +264,18 @@ namespace TT_API.Migrations
 
                     b.Property<string>("Position")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("TypeOfBusiness")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("User_Email")
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("User_Name")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("User_Password")
                         .IsRequired()

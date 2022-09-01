@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TT_Share.Helpers;
 using TT_Share.Models;
+using TT_Share.Models.ViewModels;
 
 namespace TT_Share.Services
 {
@@ -12,7 +14,8 @@ namespace TT_Share.Services
     {
         Task<List<Campaign>> GetCampaign();
         Task<List<Gifts>> GetWinerByCampaign(int id);
-        Task<List<BarcodeHistory>> GetBarcodeHistory();
+        Task<List<Rules>> GetRules();
+        Task<List<Users>> GetUser();
         Task<List<Campaign>> CampaignsDetails(int id);
         Task<int> ScanBarcode(BarcodeHistory Userbarcodehistory);
         Task<int>AddCampaign(Campaign campaign);
@@ -20,14 +23,16 @@ namespace TT_Share.Services
         int UpdateGift(int id,Gifts gifts);
         Task<int> AddRule(Rules rules);
         Task<int> AddbarCode(BarCodes barCodes);
-
+        int DoiPass(ViewUpdatePassWord viewUpdatePassWord);
     }
     public class Manager_Svc : IManager_Svc
     {
         private readonly DataContext _context;
-        public Manager_Svc(DataContext context)
+        protected IMaHoaHelper _maHoaHelper;
+        public Manager_Svc(DataContext context, IMaHoaHelper maHoaHelper)
         {
             _context = context;
+            _maHoaHelper = maHoaHelper;
         }
 
         public async Task<int> AddbarCode(BarCodes barCodes)
@@ -116,6 +121,20 @@ namespace TT_Share.Services
             return campaigns;
         }
 
+        public async Task<List<Rules>> GetRules()
+        {
+            List<Rules> rules = new List<Rules>();
+            rules = await _context.Ruless.ToListAsync();
+            return rules;
+        }
+
+        public async Task<List<Users>> GetUser()
+        {
+             List<Users> users = new List<Users>();
+            users = await _context.Users.ToListAsync();
+            return users;
+        }
+
         public async Task<List<Gifts>> GetWinerByCampaign(int id)
         {
             List<Gifts> WinnerGift=new List<Gifts>();
@@ -169,5 +188,32 @@ namespace TT_Share.Services
             }
             return ret;
         }
+        public int DoiPass(ViewUpdatePassWord viewUpdatePassWord)
+        {
+
+            var u = _context.Users.Where(p => p.Users_Id.Equals(viewUpdatePassWord.IdUsers) && p.User_Password.Equals(_maHoaHelper.Mahoa(viewUpdatePassWord.Password))).FirstOrDefault();
+            if (u != null)
+            {
+                int ret = 0;
+                try
+                {
+                    Users _user = null;
+                    _user = _context.Users.Find(u.Users_Id);
+                    _user.User_Password = _maHoaHelper.Mahoa(viewUpdatePassWord.PasswordNew);
+                    _user.User_Password2 = _maHoaHelper.Mahoa(viewUpdatePassWord.PasswordNew);
+                    _context.Update(_user);
+                    _context.SaveChanges();
+                    ret = _user.Users_Id;
+                }
+                catch
+                {
+                    ret = 0;
+                }
+                return ret;
+            }
+            return 0;
+
+        }
+
     }
 }

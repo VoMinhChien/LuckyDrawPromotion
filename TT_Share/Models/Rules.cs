@@ -24,7 +24,7 @@ namespace TT_Share.Models
         [Display(Name = "Amount")]
         [Required(ErrorMessage = "Please enter data")]
         public int Rules_Amount { get; set; }
-     
+        
         [Display(Name = "StartTime")]
         [Required(ErrorMessage = "Please enter data")]
         public TimeSpan Rule_StartTime { get; set; }

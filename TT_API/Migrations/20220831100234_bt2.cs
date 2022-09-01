@@ -24,7 +24,7 @@ namespace TT_API.Migrations
                     CodeCount = table.Column<int>(type: "int", nullable: false),
                     Charset = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     CodeLength = table.Column<int>(type: "int", nullable: false),
-                    Prefix = table.Column<string>(type: "varchar(50)", nullable: true),
+                    Prefix = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     Postfix = table.Column<string>(type: "varchar(50)", nullable: true),
                     StartDate = table.Column<DateTime>(type: "DateTime", nullable: false),
                     EndDate = table.Column<DateTime>(type: "DateTime", nullable: false)
@@ -40,13 +40,13 @@ namespace TT_API.Migrations
                 {
                     Users_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    User_Name = table.Column<string>(type: "varchar(255)", nullable: false),
+                    User_Name = table.Column<string>(type: "nvarchar(255)", nullable: false),
                     User_Email = table.Column<string>(type: "varchar(255)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false),
                     DataOfBirth = table.Column<DateTime>(type: "DateTime", nullable: false),
-                    Position = table.Column<string>(type: "varchar(255)", nullable: false),
-                    TypeOfBusiness = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Location = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Position = table.Column<string>(type: "nvarchar(255)", nullable: false),
+                    TypeOfBusiness = table.Column<string>(type: "nvarchar(255)", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(255)", nullable: false),
                     User_Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     User_Password2 = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     User_Roles = table.Column<string>(type: "nvarchar(100)", nullable: false),
@@ -92,8 +92,8 @@ namespace TT_API.Migrations
                     Gifts_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Campaign_Id = table.Column<int>(type: "int", nullable: false),
-                    Gifts_Product = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Gifts_Description = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Gifts_Product = table.Column<string>(type: "nvarchar(255)", nullable: false),
+                    Gifts_Description = table.Column<string>(type: "nvarchar(255)", nullable: false),
                     Gifts_CodeCount = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "DateTime", nullable: false)
                 },

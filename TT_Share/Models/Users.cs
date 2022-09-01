@@ -20,7 +20,7 @@ namespace TT_Share.Models
         [Key]
         [Column(TypeName = "int")]
         public int Users_Id { get; set; }
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Please enter data")]
         public string User_Name { get; set; }
@@ -38,15 +38,15 @@ namespace TT_Share.Models
         [Required(ErrorMessage = "Please enter data")]
         public DateTime DataOfBirth { get; set; }
         [Display(Name = "Position")]
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         [Required(ErrorMessage = "Please enter data")]
         public string Position { get; set; }
         [Display(Name = "TypeOfBusiness")]
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         [Required(ErrorMessage = "Please enter data")]
         public string TypeOfBusiness { get; set; }
         [Display(Name = "Location")]
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         [Required(ErrorMessage = "Please enter data")]
         public string Location { get; set; }
         [Display(Name = "PassWord")]

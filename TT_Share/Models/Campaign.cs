@@ -45,7 +45,7 @@ namespace TT_Share.Models
         [Column(TypeName = "int")]
         [Display(Name = "CodeLength")]
         public int CodeLength { get; set; }
-        [Column(TypeName = "varchar(50)")]
+        [Column(TypeName = "nvarchar(50)")]
         [Display(Name = "CodeCount")]
         public string Prefix { get; set; }
         [Column(TypeName = "varchar(50)")]

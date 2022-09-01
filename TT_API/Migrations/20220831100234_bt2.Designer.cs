@@ -10,7 +10,7 @@ using TT_Share.Models;
 namespace TT_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220831092149_bt2")]
+    [Migration("20220831100234_bt2")]
     partial class bt2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,7 +149,7 @@ namespace TT_API.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Prefix")
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("DateTime");
@@ -180,11 +180,11 @@ namespace TT_API.Migrations
 
                     b.Property<string>("Gifts_Description")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Gifts_Product")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Gifts_Id");
 
@@ -254,7 +254,7 @@ namespace TT_API.Migrations
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("NumberOfTurns")
                         .HasColumnType("int");
@@ -266,18 +266,18 @@ namespace TT_API.Migrations
 
                     b.Property<string>("Position")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("TypeOfBusiness")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("User_Email")
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("User_Name")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("User_Password")
                         .IsRequired()

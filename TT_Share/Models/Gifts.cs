@@ -12,11 +12,11 @@ namespace TT_Share.Models
         [ForeignKey("campaign")]
         [Column(TypeName = "int")]
         public int Campaign_Id { get; set; }
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         [Display(Name = "Product")]
         [Required(ErrorMessage = "Please enter data")]
         public string Gifts_Product { get; set; }
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Please enter data")]
         public string Gifts_Description { get; set; }
