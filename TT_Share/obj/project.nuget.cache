@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "A5lszO8VbjdwlwPVAaixqOrfPGgEuVufClw/awYqdZoYhstu7YHsXfWAksW0PNvPVxkTmmhblIWcLjhhY5pDCg==",
+  "dgSpecHash": "lTiXY+18DUsjo+B3nFqvxEV9t7LBOqiMLivtdsc0ye/YyaF6JWgnT2Wu4UjLlnJ0xlNeAvc4PO1uxKkKGiqZDA==",
   "success": true,
   "projectFilePath": "F:\\THUC_TAP\\BT2\\ThucTap\\TT_Share\\TT_Share.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\MinhChien-PC\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\MinhChien-PC\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\MinhChien-PC\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\MinhChien-PC\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\MinhChien-PC\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\MinhChien-PC\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\MinhChien-PC\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",

@@ -23,7 +23,11 @@ namespace TT_API.Controllers
             _UseSvc = UserSvc;
             _configuration = configuration;
         }
-
+        /// <summary>
+        /// đăng nhập (user đăng nhập bằng email , custommer đăng nhập bằng sdt)
+        /// </summary>
+        /// <param name="viewLogin"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Post(ViewLogin viewLogin)
         {

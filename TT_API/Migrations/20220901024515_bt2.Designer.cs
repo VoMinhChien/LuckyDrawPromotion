@@ -10,7 +10,7 @@ using TT_Share.Models;
 namespace TT_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220831100234_bt2")]
+    [Migration("20220901024515_bt2")]
     partial class bt2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -168,3 +168,6 @@ F:\THUC_TAP\BT2\ThucTap\TT_API\bin\Debug\net5.0\runtimes\win-arm\native\e_sqlite
 F:\THUC_TAP\BT2\ThucTap\TT_API\bin\Debug\net5.0\runtimes\win-arm64\native\e_sqlite3.dll
 F:\THUC_TAP\BT2\ThucTap\TT_API\bin\Debug\net5.0\runtimes\win-x64\native\e_sqlite3.dll
 F:\THUC_TAP\BT2\ThucTap\TT_API\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
+F:\THUC_TAP\BT2\ThucTap\TT_API\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+F:\THUC_TAP\BT2\ThucTap\TT_API\bin\Debug\net5.0\TT_API.xml
+F:\THUC_TAP\BT2\ThucTap\TT_API\obj\Debug\net5.0\TT_API.xml

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TT_API</name>
+    </assembly>
+    <members>
+        <member name="M:TT_API.Controllers.ManagerController.GetAllCampaign">
+            <summary>
+            hiển thị danh sách  Campaign
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.GetWinerByCampaign(System.Int32)">
+            <summary>
+            Show danh sách người thắng thông qua từng chiến dịch
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.AddCampaign(TT_Share.Models.Campaign)">
+            <summary>
+            Tạo Chiến Dịch mới
+            </summary>
+            <param name="campaign"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.AddGift(TT_Share.Models.Gifts)">
+            <summary>
+            Tạo Gift mới
+            </summary>
+            <param name="gifts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.AddRule(TT_Share.Models.Rules)">
+            <summary>
+            Tạo Rules mới
+            </summary>
+            <param name="rules"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.UpdateGift(System.Int32,TT_Share.Models.Gifts)">
+            <summary>
+            cập nhật gift
+            </summary>
+            <param name="id"></param>
+            <param name="gifts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.AddBarCode(TT_Share.Models.BarCodes)">
+            <summary>
+            thêm Barcode mới
+            </summary>
+            <param name="barcode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.AddScanBarCode(TT_Share.Models.BarcodeHistory)">
+            <summary>
+             quét mã barcode
+            </summary>
+            <param name="barcodeHistory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.DetailCampaign(System.Int32)">
+            <summary>
+            hiển thị chi tiết chiến dịch
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.BarcodeHistories">
+            <summary>
+            hiển thị lịch sử quét mã
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.ShowRule">
+            <summary>
+            hiển thị tất cả rules
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.ShowUser">
+            <summary>
+            hiển thị tất cả users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.ManagerController.UpdatePass(TT_Share.Models.ViewModels.ViewUpdatePassWord)">
+            <summary>
+            đổi mật khẩu
+            </summary>
+            <param name="viewUpdatePassWord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.TokenController.Post(TT_Share.Models.ViewModels.ViewLogin)">
+            <summary>
+            đăng nhập (user đăng nhập bằng email , custommer đăng nhập bằng sdt)
+            </summary>
+            <param name="viewLogin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.UserController.PostUser(TT_Share.Models.Users)">
+            <summary>
+            đăng kí tài khoản
+            </summary>
+            <param name="users"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.UserController.Spin(TT_Share.Models.ViewModels.ViewSpin)">
+            <summary>
+            quay vòng quay may mắn
+            </summary>
+            <param name="viewSpin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.UserController.GetAllWiner">
+            <summary>
+            hiển thị danh sách các người chơi đã quét mã
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.UserController.GetWinnerByPhoneNumber(System.String)">
+            <summary>
+            tìm kiếm người chơi đã quay (đầu vào là sdt)
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.UserController.SuaThongTin(System.Int32,TT_Share.Models.Users)">
+            <summary>
+            sửa thông tin cá nhân
+            </summary>
+            <param name="id"></param>
+            <param name="users"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TT_API.Controllers.UserController.GetAllGiftByWinner(System.Int32)">
+            <summary>
+            hiển thị lịch sử quay cá nhân
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

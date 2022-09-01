@@ -13,6 +13,7 @@ namespace TT_Share.Services
     public interface IManager_Svc
     {
         Task<List<Campaign>> GetCampaign();
+        Task<List<BarcodeHistory>> GetBarcodeHistory();
         Task<List<Gifts>> GetWinerByCampaign(int id);
         Task<List<Rules>> GetRules();
         Task<List<Users>> GetUser();
@@ -188,10 +189,10 @@ namespace TT_Share.Services
             }
             return ret;
         }
-        public int DoiPass(ViewUpdatePassWord viewUpdatePassWord)
+        public  int DoiPass(ViewUpdatePassWord viewUpdatePassWord)
         {
 
-            var u = _context.Users.Where(p => p.Users_Id.Equals(viewUpdatePassWord.IdUsers) && p.User_Password.Equals(_maHoaHelper.Mahoa(viewUpdatePassWord.Password))).FirstOrDefault();
+            var u =  _context.Users.Where(p => p.Users_Id.Equals(viewUpdatePassWord.IdUsers) && p.User_Password.Equals(_maHoaHelper.Mahoa(viewUpdatePassWord.Password))).FirstOrDefault();
             if (u != null)
             {
                 int ret = 0;
@@ -211,6 +212,7 @@ namespace TT_Share.Services
                 }
                 return ret;
             }
+            
             return 0;
 
         }
